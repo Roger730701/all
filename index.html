@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NobelBiocare by RogerHuang</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang TC',sans-serif;
+  background:#f5f5f5;
+  min-height:100vh;color:#1a1a1a}
+
+/* ── 標題 ── */
+header{padding:32px 20px 20px;max-width:480px;margin:0 auto}
+.header-top{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:4px}
+.header-top h1{font-size:22px;font-weight:800;letter-spacing:2px;text-align:center;color:#1a1a1a}
+.header-sub{text-align:right;font-size:12px;color:#555;letter-spacing:1px;padding-right:2px}
+
+/* 植體 SVG icon */
+.implant-icon{width:36px;height:36px;flex-shrink:0}
+
+/* ── 卡片 ── */
+.wrap{max-width:480px;margin:0 auto;padding:0 20px 60px}
+.card{background:#fff;
+  border:1.5px solid #e0e0e0;border-radius:18px;
+  padding:22px 24px;margin-bottom:16px;text-decoration:none;color:#1a1a1a;
+  display:flex;align-items:center;gap:16px;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.card:active{transform:scale(.97);box-shadow:0 1px 6px rgba(0,0,0,.12)}
+.card-icon{font-size:38px;flex-shrink:0;line-height:1}
+.card-text h2{font-size:19px;font-weight:700;margin-bottom:4px;color:#cc0000}
+.card-text p{font-size:13px;color:#555}
+.card-arrow{margin-left:auto;font-size:22px;color:#cc0000;flex-shrink:0}
+
+/* ── 分隔線 ── */
+.divider{text-align:center;margin:24px 0 18px;font-size:13px;color:#888;
+  letter-spacing:2px;position:relative}
+.divider::before,.divider::after{content:'';position:absolute;top:50%;
+  width:28%;height:1px;background:#ddd}
+.divider::before{left:0}.divider::after{right:0}
+
+/* ── 教學區塊 ── */
+.tutorial{background:#fff;border:1.5px solid #e0e0e0;border-radius:18px;padding:22px 18px;
+  box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.tutorial h3{font-size:16px;font-weight:700;margin-bottom:16px;text-align:center;color:#1a1a1a}
+
+.os-tabs{display:flex;gap:10px;margin-bottom:20px}
+.tab{flex:1;padding:10px;border:1.5px solid #ddd;border-radius:10px;
+  text-align:center;font-size:14px;font-weight:600;cursor:pointer;
+  background:#f5f5f5;color:#555;transition:all .15s}
+.tab.active{background:#cc0000;border-color:#cc0000;color:#fff}
+
+.steps{display:none}
+.steps.show{display:flex;flex-direction:row;gap:6px;overflow-x:auto;padding-bottom:4px}
+
+/* 圖示步驟卡 */
+.step-card{flex:0 0 80px;background:#fff2f2;border:1.5px solid #ffcccc;border-radius:14px;
+  padding:12px 6px;text-align:center;position:relative}
+.step-card .s-num{position:absolute;top:7px;left:9px;font-size:11px;
+  font-weight:700;color:#cc0000}
+.step-card .s-icon{font-size:28px;display:block;margin:8px 0 8px}
+.step-card .s-label{font-size:11px;line-height:1.4;color:#333;font-weight:600}
+
+.arrow-sep{display:flex;align-items:center;color:#cc0000;font-size:18px;flex-shrink:0}
+
+.tip{background:#fff2f2;border:1px solid #ffcccc;border-radius:10px;padding:11px 14px;color:#333;
+  margin-top:14px;font-size:13px;line-height:1.6;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <!-- 植體 SVG -->
+    <svg class="implant-icon" viewBox="0 0 36 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="2" width="28" height="14" rx="7" fill="#cc0000" opacity=".9"/>
+      <rect x="13" y="15" width="10" height="7" rx="2" fill="#cc0000" opacity=".8"/>
+      <rect x="12" y="21" width="12" height="19" rx="3" fill="#cc0000" opacity=".8"/>
+      <path d="M12 26 Q18 28.5 24 26" stroke="#cc0000" stroke-width="1.8" fill="none" opacity=".9"/>
+      <path d="M12 30 Q18 32.5 24 30" stroke="#cc0000" stroke-width="1.8" fill="none" opacity=".9"/>
+      <path d="M12 34 Q18 36.5 24 34" stroke="#cc0000" stroke-width="1.8" fill="none" opacity=".9"/>
+      <path d="M12 40 L18 46 L24 40 Z" fill="#cc0000" opacity=".8"/>
+    </svg>
+    <h1>NobelBiocare</h1>
+  </div>
+  <div class="header-sub">by RogerHuang</div>
+</header>
+
+<div class="wrap">
+
+  <!-- 跟刀登記表 -->
+  <a class="card" href="https://roger730701.github.io/-/" target="_blank">
+    <div class="card-icon">
+      <!-- 手機+植牙組合 -->
+      <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- 手機外框 -->
+        <rect x="6" y="4" width="22" height="34" rx="5" fill="#ffeeee" opacity="1" stroke="#cc0000" stroke-width="2"/>
+        <!-- 手機螢幕 -->
+        <rect x="9" y="9" width="16" height="22" rx="2" fill="#ffcccc" opacity="1"/>
+        <!-- 手機home鍵 -->
+        <circle cx="17" cy="34.5" r="1.8" fill="#cc0000" opacity=".8"/>
+        <!-- 植體小圖 -->
+        <rect x="24" y="6" width="12" height="6" rx="3" fill="#cc0000" opacity=".9"/>
+        <rect x="27" y="11.5" width="6" height="4" rx="1.5" fill="white" opacity=".8"/>
+        <rect x="26" y="14.5" width="8" height="11" rx="2" fill="#cc0000" opacity=".8"/>
+        <path d="M26 22 Q30 23.5 34 22" stroke="#cc0000" stroke-width="1.2" fill="none" opacity=".9"/>
+        <path d="M26 25 Q30 26.5 34 25" stroke="#cc0000" stroke-width="1.2" fill="none" opacity=".9"/>
+        <path d="M26 27.5 L30 30 L34 27.5 Z" fill="#cc0000" opacity=".8"/>
+      </svg>
+    </div>
+    <div class="card-text">
+      <h2>跟刀登記表</h2>
+      <p>手術跟刀記錄 · Nobel Biocare</p>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <!-- 訂單系統 -->
+  <a class="card" href="https://roger730701.github.io/nobelroger.github.io/" target="_blank">
+    <div class="card-icon">🛒</div>
+    <div class="card-text">
+      <h2>訂單系統</h2>
+      <p>Nobel Biocare 訂單管理平台</p>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <!-- 教學 -->
+  <div class="divider">📲 加入手機桌面</div>
+
+  <div class="tutorial">
+    <h3>圖示教學：把捷徑放到桌面</h3>
+
+    <div class="os-tabs">
+      <button class="tab active" onclick="switchTab('ios',this)">🍎 iPhone</button>
+      <button class="tab" onclick="switchTab('android',this)">🤖 Android</button>
+    </div>
+
+    <!-- iOS -->
+    <div class="steps show" id="ios">
+      <div class="step-card">
+        <span class="s-num">1</span>
+        <span class="s-icon">🧭</span>
+        <div class="s-label">Safari<br>開啟</div>
+      </div>
+      <div class="arrow-sep">›</div>
+      <div class="step-card">
+        <span class="s-num">2</span>
+        <span class="s-icon">⬆️</span>
+        <div class="s-label">下方<br>分享鍵</div>
+      </div>
+      <div class="arrow-sep">›</div>
+      <div class="step-card">
+        <span class="s-num">3</span>
+        <span class="s-icon">➕</span>
+        <div class="s-label">加入<br>主畫面</div>
+      </div>
+      <div class="arrow-sep">›</div>
+      <div class="step-card">
+        <span class="s-num">4</span>
+        <span class="s-icon">✅</span>
+        <div class="s-label">點右上<br>新增</div>
+      </div>
+      <div class="arrow-sep">›</div>
+      <div class="step-card">
+        <span class="s-num">5</span>
+        <span class="s-icon">🦷</span>
+        <div class="s-label">桌面<br>完成！</div>
+      </div>
+    </div>
+
+    <!-- Android -->
+    <div class="steps" id="android">
+      <div class="step-card">
+        <span class="s-num">1</span>
+        <span class="s-icon">🌐</span>
+        <div class="s-label">Chrome<br>開啟</div>
+      </div>
+      <div class="arrow-sep">›</div>
+      <div class="step-card">
+        <span class="s-num">2</span>
+        <span class="s-icon">⋮</span>
+        <div class="s-label">右上角<br>三個點</div>
+      </div>
+      <div class="arrow-sep">›</div>
+      <div class="step-card">
+        <span class="s-num">3</span>
+        <span class="s-icon">📲</span>
+        <div class="s-label">新增至<br>主畫面</div>
+      </div>
+      <div class="arrow-sep">›</div>
+      <div class="step-card">
+        <span class="s-num">4</span>
+        <span class="s-icon">✅</span>
+        <div class="s-label">點<br>新增</div>
+      </div>
+      <div class="arrow-sep">›</div>
+      <div class="step-card">
+        <span class="s-num">5</span>
+        <span class="s-icon">🦷</span>
+        <div class="s-label">桌面<br>完成！</div>
+      </div>
+    </div>
+
+    <div class="tip">🎉 完成後桌面會出現捷徑，點一下直接開啟！</div>
+  </div>
+
+</div>
+
+<script>
+function switchTab(os, btn) {
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.steps').forEach(function(s){ s.classList.remove('show'); });
+  btn.classList.add('active');
+  document.getElementById(os).classList.add('show');
+}
+</script>
+</body>
+</html>
